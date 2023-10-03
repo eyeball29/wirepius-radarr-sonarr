@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     hostname: "unbound"
     environment:
-      - TZ=Europe/Brussels # Change to your timezone
+      - TZ=America/New_York # Change to your timezone
     volumes:
       - "./unbound:/opt/unbound/etc/unbound/"
     networks:
@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
     hostname: "stubby"
     environment:
-      - TZ=Europe/Brussels # Change to your timezone
+      - TZ=America/New_York # Change to your timezone
     networks:
       private_network:
         ipv4_address: 10.2.0.201
@@ -41,7 +41,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Brussels # Change to your timezone
+      - TZ=America/New_York # Change to your timezone
       - SERVERPORT=51820
       #- SERVERURL=my.ddns.net #optional - For use with DDNS (Uncomment to use)
       - PEERS=10 # How many peers to generate for you (clients)
