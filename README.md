@@ -33,6 +33,41 @@ This project supports multiple architectures such as `x86-64`, `arm64` [Raspberr
 ## 🌉 WirePiUS
 **WirePiUS** is a combination of [WireGuard®](https://www.wireguard.com/), [Pi-Hole®](https://en.wikipedia.org/wiki/Pi-hole), [Unbound®](https://en.wikipedia.org/wiki/Unbound_(DNS_server)), and [Stubby®](https://dnsprivacy.org/dns_privacy_daemon_-_stubby/) for secure VPN and [DoT](https://en.wikipedia.org/wiki/DNS_over_TLS) (DNS over TLS) in a docker-compose project
 
+### Requirements
+Docker and docker compose plugin must be installed. 
+[Install documentation](https://docs.docker.com/engine/install/)
+For Debian/Raspbian:
+#### Uninstall all previous components of docker
+```bash
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+#### Set up Docker's Apt repository:
+'''bash
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# Set up Docker's Apt repository:
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/raspbian \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+'''
+
+#### Install the Docker packages.
+'''bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+'''
+
+#### Verify that the installation is successful by running the hello-world image:
+'''bash
+sudo docker run hello-world
+'''
+
 ### 💪 Quickstart
 To get started all you need to do is clone the repository and spin up the containers.
 ```bash
@@ -42,7 +77,7 @@ git clone https://github.com/belarbi2733/wirepius-radarr-sonarr
 cd wirepius-radarr-sonarr/WirePiUS
 ```
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 Within the output of the terminal will be QR codes you can (if you choose) to setup it WireGuard on your phone, or you can found the configs file in : `wirepius-radarr-sonarr/WireHoleS/wireguard`
 ```bash
