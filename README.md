@@ -43,31 +43,32 @@ for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do
 ```
 #### Set up Docker's Apt repository:
 Add Docker's official GPG key:
-'''bash
+```bash
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
-'''
+```
+
 Set up Docker's Apt repository:
-'''bash
+```bash
 echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/raspbian \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-'''
+```
 
 #### Install the Docker packages.
-'''bash
+```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-'''
+```
 
 #### Verify that the installation is successful by running the hello-world image:
-'''bash
+```bash
 sudo docker run hello-world
-'''
+```
 
 ### 💪 Quickstart
 To get started all you need to do is clone the repository and spin up the containers.
