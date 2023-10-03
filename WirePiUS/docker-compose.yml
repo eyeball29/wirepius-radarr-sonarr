@@ -73,8 +73,8 @@ services:
       - 10.2.0.200 # Points to unbound
       - 10.2.0.201:8053 # Points to stubby
     environment:
-      TZ: "Europe/Brussels"
-      WEBPASSWORD: "" # Blank password - Can be whatever you want.
+      TZ: "America/New_York"
+      WEBPASSWORD: "what3very0uwanT" # Blank password - Can be whatever you want.
       ServerIP: 10.1.0.100 # Internal IP of pihole
       DNS1: 10.2.0.200 # Unbound IP
       DNS2: 10.2.0.201#8053 # Stubby IP.
