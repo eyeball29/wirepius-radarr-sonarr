@@ -14,7 +14,7 @@ services:
       - PUID=1000
       - PGID=1000
       - VERSION=docker
-      - TZ=Europe/Brussels
+      - TZ=America/New_York
     networks:
       private_network:
         ipv4_address: 10.2.0.15
