@@ -14,28 +14,45 @@ services:
       options:
         max-size: 10m
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     networks:
       private_network:
         ipv4_address: 10.2.0.10
-  jackett:
-    image: "linuxserver/jackett:latest"
-    container_name: jackett
-    restart: unless-stopped
-    hostname: "jackett"
-    volumes:
-      - './jackett/downloads:/data/downloads'
-      - './jackett/config:/config'
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
-      - AUTO_UPDATE=true #optional
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ./prowlarr/config:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
     networks:
       private_network:
         ipv4_address: 10.2.0.11
+  
+  #jackett:
+  #  image: "linuxserver/jackett:latest"
+  #  container_name: jackett
+  # restart: unless-stopped
+  #  hostname: "jackett"
+  #  volumes:
+  #    - './jackett/downloads:/data/downloads'
+  #    - './jackett/config:/config'
+  #  environment:
+  #    - PUID=1000
+  #   - PGID=1000
+  #    - TZ=America/New_York
+  #    - AUTO_UPDATE=true #optional
+  #  networks:
+  #    private_network:
+  #      ipv4_address: 10.2.0.11
+  
   flaresolverr:
     image: "ghcr.io/flaresolverr/flaresolverr:latest"
     container_name: flaresolverr
@@ -43,9 +60,9 @@ services:
     hostname: "flaresolverr"
     environment:
       - LOG_LEVEL=info
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     networks:
       private_network:
         ipv4_address: 10.2.0.12
@@ -59,9 +76,9 @@ services:
       - './rdtclient/downloads/sonarr:/downloads/sonarr'
       - './sonarr/config:/config'
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     networks:
       private_network:
         ipv4_address: 10.2.0.13
@@ -75,9 +92,9 @@ services:
       - './rdtclient/downloads/radarr:/downloads/radarr'
       - './radarr/config:/config'
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     networks:
       private_network:
         ipv4_address: 10.2.0.14
