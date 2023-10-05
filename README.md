@@ -73,7 +73,7 @@ sudo docker run hello-world
 ### 💪 Quickstart
 To get started all you need to do is clone the repository and spin up the containers.
 ```bash
-git clone https://github.com/eyeball29/wirepius-ezarr_plus
+git clone https://github.com/eyeball29/wirepius-radarr-sonarr
 ```
 ```bash
 cd wirepius-radarr-sonarr/WirePiUS
