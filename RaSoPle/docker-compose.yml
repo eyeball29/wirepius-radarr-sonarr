@@ -35,7 +35,6 @@ services:
     networks:
       private_network:
         ipv4_address: 10.2.0.11
-  
   #jackett:
   #  image: "linuxserver/jackett:latest"
   #  container_name: jackett
@@ -98,6 +97,28 @@ services:
     networks:
       private_network:
         ipv4_address: 10.2.0.14
+
+  plex-meta-manager:
+    image: lscr.io/linuxserver/plex-meta-manager:latest
+    container_name: plex-meta-manager
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - PMM_CONFIG=/config/config.yml #optional
+      - PMM_TIME=03:00 #optional
+      - PMM_RUN=False #optional
+      - PMM_TEST=False #optional
+      - PMM_NO_MISSING=False #optional
+    volumes:
+      - ./plexmm/config:/config
+    restart: unless-stopped
+    networks:
+      private_network:
+        ipv4_address: 10.2.0.15
+
+
+        
 networks:
       private_network:
         external:
