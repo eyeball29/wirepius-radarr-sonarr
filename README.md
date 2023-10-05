@@ -5,7 +5,7 @@
 With the intent of enabling users to quickly and easily create and deploy a personally managed full or split-tunnel WireGuard VPN with ad blocking capabilities (via Pihole), first DNS caching with additional privacy options (via Unbound) and second DoT (DNS over TLS) within Stubby.
 
 You can have access to all your Series, Movies, Music, EBook over secure VPN. Note that all services are not publically exposed, the idea is to guarantee the privacy and security.
-## 👤 Author
+## 👤 Original Author
 * Twitter: [@belarbi2733](https://twitter.com/belarbi2733)
 * Github: [@belarbi2733](https://github.com/belarbi2733)
 ## 🤝 Contributing
@@ -16,8 +16,6 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 Give a ⭐ if this project helped you!
 
-<a href="https://www.buymeacoffee.com/belarbima" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-
 ## 💻 Supported Architectures
 
 This project supports multiple architectures such as `x86-64`, `arm64` [Raspberry-Ubuntu](https://ubuntu.com/download/raspberry-pi) and `armhf` [Raspberry-Raspbian](https://www.raspberrypi.com/software/operating-systems/).
@@ -26,9 +24,7 @@ This project supports multiple architectures such as `x86-64`, `arm64` [Raspberr
 
 | Architecture | Tag |
 | :----: | --- |
-| `x86-64` | `amd64-latest` |
 | `arm64` | `arm64v8-latest` |
-| `armhf` | `arm32v7-latest` |
 
 ## 🌉 WirePiUS
 **WirePiUS** is a combination of [WireGuard®](https://www.wireguard.com/), [Pi-Hole®](https://en.wikipedia.org/wiki/Pi-hole), [Unbound®](https://en.wikipedia.org/wiki/Unbound_(DNS_server)), and [Stubby®](https://dnsprivacy.org/dns_privacy_daemon_-_stubby/) for secure VPN and [DoT](https://en.wikipedia.org/wiki/DNS_over_TLS) (DNS over TLS) in a docker-compose project
